@@ -1,0 +1,36 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.messagesender{
+    /* margin-right: 350px; */
+    /* width: 100px; */
+    display: flex;
+    padding: 10px;
+    /* background: rgb(83, 83, 83); */
+    border-radius: 15px;
+}
+.messagerecipiend{
+    /* width: 100px; */
+    display: flex;
+    justify-content: end;
+    padding: 10px;
+    /* background: #696969; */
+    border-radius: 15px;
+}
+.coutainer{
+    height: 600px;
+    overflow-y: scroll;
+}
+.blesk{
+    background: #251a1a;
+    padding: 10px;
+    border-radius: 15px;
+}
+.sender{
+    padding: 0;
+    margin: 0;
+}
