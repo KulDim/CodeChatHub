@@ -3,16 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Socket.IO Private Message Client</title>
+  <title>Socket.io Chat</title>
 </head>
 <body>
-  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+  <ul id="messages"></ul>
+  <form id="form" action="">
+    <input id="m" autocomplete="off" /><button>Отправить</button>
+  </form>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script>
-    const socket = io();
-
-    // Прослушивание приватного сообщения от сервера
-    socket.on('connection', (msg) => {
-      console.log('Приватное сообщение от сервера:', msg);
+    $(function () {
+      var socket = io();
+      var username = prompt("Введите ваше имя:");
+  
+      $('form').submit(function(){
+        socket.emit('chat message', $('#m').val());
+        $('#m').val('');
+        return false;
+      });
+  
+      socket.on('chat message', function(data){
+        if (data.type === 'system') {
+          $('#messages').append($('<li>').text(data.text).css('color', 'gray'));
+        } else {
+          $('#messages').append($('<li>').text(`${data.username}: ${data.text}`));
+        }
+      });
     });
   </script>
 </body>
