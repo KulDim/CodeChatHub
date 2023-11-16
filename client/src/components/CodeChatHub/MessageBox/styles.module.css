@@ -1,7 +1,21 @@
-.sender{
-    background: #a3a3a3;
+.form{
+    display: flex;
+    width: 100%;
 }
 
-.receiver{
-    background: #b39f9f;
+.textarea{
+    width: 100%;
+    outline: none;
+    resize: none;
+    overflow-y: auto;
+    font-size: 14px;
+    /* padding: 0 50px; */
+    margin: 0;
+    /* text-align: center; */
+    align-content: center;
+    text-align: left;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

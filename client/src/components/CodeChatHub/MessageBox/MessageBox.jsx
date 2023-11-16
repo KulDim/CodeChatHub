@@ -16,10 +16,10 @@ function MessageBox({socket}) {
         setMessage('')
     } 
     return (
-        <form onSubmit={onSubmitSend}>
-            <input type="text" placeholder="message" onChange={(e) => {
-                setMessage(e.target.value)}} value={message}/>
-            <button>send</button>
+        <form onSubmit={onSubmitSend} className={styles.form}>
+                <textarea placeholder="message" onChange={(e) => {
+                setMessage(e.target.value)}} value={message} className={styles.textarea}></textarea>
+            <button className={styles.button}>send</button>
         </form>
     )
 }
