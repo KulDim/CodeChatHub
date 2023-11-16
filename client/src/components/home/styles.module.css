@@ -1,19 +1,51 @@
 .Home{
-
+    background-color: #333;
+    color: #47d753;
+    padding-left: 40px;   
 }
 
 .title{
-
+    
 }
 
 .form{
-
+    display: flex;
+    justify-content: center;
+    
 }
 
 .input{
-
+    display: flex;
+    padding: 12px 200px 13px 20px;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 6px;
+    border: 2px solid #57E265;
+    background: #333;
+    color: #57E265;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    outline: none;
+    margin: 40px;
 }
 
 .button{
-
+    display: inline-flex;
+    height: 40px;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    background: #57E265;
+    color: #000;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    margin: 40px;
 }
