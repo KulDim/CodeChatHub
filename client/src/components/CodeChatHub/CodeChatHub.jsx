@@ -1,21 +1,14 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import SideBar from "./SideBar/SideBar"
+import MessageBox from "./MessageBox/MessageBox"
+import MessageChat from "./MessageChat/MessageChat"
+import MessageHead from "./MessageHead/MessageHead"
 import styles from "./styles.module.css"
 
 function CodeChatHub({socket}) {
     const [messages, setMessages] = useState([])
-    const[message, setMessage] = useState('')
-    const[name, setName] = useState('')
-
-    const onSubmitSend = (e) => {
-        e.preventDefault()
-        socket.emit('message', {
-            text: message,
-            name: name,
-            id: `${socket.id}-${Math.random()}`,
-            socketID: socket.id
-        })
-        setMessage('')
-    }
+    const navigate = useNavigate()
 
     useEffect(()=>{
         socket.on('response', (data) => {
@@ -23,29 +16,18 @@ function CodeChatHub({socket}) {
         })
     },[socket,messages])
 
+    useEffect(() => {
+        if(!localStorage.getItem('user')) navigate('/')
+    })
+
     return (
-        <div>
-            <div> 
-            {
-                messages.map(element =>
-                    <div key={element.id}>
-                        <div className={element.name == name ? styles.sender: styles.receiver}>
-                            <span>{element.name}</span>
-                            <span>{element.text}</span>
-                        </div>
-                    </div>
-                )
-            }
+        <div className={styles.CodeChatHub}>
+            <SideBar/>
+            <div className={styles.Message}>
+                <MessageHead/>
+                <MessageChat messages={messages}/>
+                <MessageBox socket={socket}/>
             </div>
-            <form onSubmit={onSubmitSend}>
-                <input type="text" placeholder="name" onChange={(e) => {
-                    setName(e.target.value)
-                }} value={name}/>
-                <input type="text" placeholder="message" onChange={(e) => {
-                    setMessage(e.target.value)
-                }} value={message}/>
-                <button>send</button>
-            </form>
         </div>
     )
 }
