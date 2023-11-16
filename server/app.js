@@ -2,13 +2,15 @@ const express = require('express')
 const app = express()
 const http = require('http').Server(app)
 const cors = require('cors')
+const path = require('path')
+
 const socketIO = require('socket.io')(http, {
     cors: {
         origin: 'http://localhost:5173'
     }
 })
 
-const PORT = 3000
+const PORT = 2020
 
 
 
@@ -18,6 +20,8 @@ app.get('/api', (req, res) => {
     })
 })
 
+
+app.use(express.static(path.join(__dirname, 'dist')));
 
 socketIO.on('connection', (socket)  => {
     console.log('connection')
