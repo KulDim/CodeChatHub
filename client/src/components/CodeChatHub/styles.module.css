@@ -1,7 +1,12 @@
-.sender{
-    background: #a3a3a3;
+.CodeChatHub{
+    display: flex;
+    height: 100%;
+    width: 100%;
 }
 
-.receiver{
-    background: #b39f9f;
+.Message{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
