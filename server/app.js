@@ -10,7 +10,7 @@ const socketIO = require('socket.io')(http, {
     }
 })
 
-const PORT = 2020
+const PORT = 3000
 
 
 

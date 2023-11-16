@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-
+import styles from "./styles.module.css"
 
 function CodeChatHub({socket}) {
     const [messages, setMessages] = useState([])
@@ -26,30 +26,16 @@ function CodeChatHub({socket}) {
     return (
         <div>
             <div> 
-                {/* переделать выводы  */}
             {
-                    messages.map(element =>
-                        element.name === name ? (
-                        <div className="chats" key={element.id}>
-                            <div>
-                                <div>
-                                    <h5>{element.name}</h5>
-                                    <p>{element.text}</p>
-                                </div>
-                            </div>
+                messages.map(element =>
+                    <div key={element.id}>
+                        <div className={element.name == name ? styles.sender: styles.receiver}>
+                            <span>{element.name}</span>
+                            <span>{element.text}</span>
                         </div>
-                        ) : (
-                            <div className="chats"  key={element.id}>
-                            <div>
-                                <div>
-                                    <h5>вы</h5>
-                                    <p>hello</p>
-                                </div>
-                            </div>
-                        </div>
-                        )
-                    )
-                }
+                    </div>
+                )
+            }
             </div>
             <form onSubmit={onSubmitSend}>
                 <input type="text" placeholder="name" onChange={(e) => {
