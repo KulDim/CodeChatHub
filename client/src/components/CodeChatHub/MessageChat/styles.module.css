@@ -1,14 +1,39 @@
 .sender{
     background: #a3a3a3;
+    /* display: flex;
+    justify-content: flex-end; */
 }
 
 .receiver{
     background: #b39f9f;
+    /* display: flex;
+    justify-content: flex-start; */
 }
 
 .MessageChat{
+    /* display: flex;
+    flex-direction: column; */
+    
+    display: grid;
+    overflow: auto;
     height: 100%;
     width: 100%;
     border: 1px solid red;
-    overflow: auto;
+    /* justify-content: flex-end; */
+
+
+}
+.messages{
+    height: 100%;
+    
+
+}
+
+.message{
+    /* display: flex; */
+    /* display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  gap: 10px;
+  margin-bottom: auto; */
 }

@@ -6,6 +6,9 @@ import styles from "./styles.module.css"
 
 
 const socket = socketIO.connect("http://localhost:3000")
+// const socket = socketIO.connect("http://192.168.0.103:3000")
+
+
 
 function App() {
   return (
